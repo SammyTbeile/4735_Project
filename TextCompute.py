@@ -63,7 +63,6 @@ lines = file.readlines()
 file.close()
 list = []
 for i, line in enumerate(lines):
-    print(i, line)
     sound = line.split(":")
     if "Page " in sound[0]:
         language = dict['nar']
@@ -78,7 +77,6 @@ for i, line in enumerate(lines):
         obj = gTTS(text=text, lang=lang, slow=False)
         list.append(obj)
 
-print(list)
 with open('TyroneTheTerrible.mp3', 'wb') as f:
     for v in list:
         v.write_to_fp(f)
