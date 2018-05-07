@@ -66,7 +66,7 @@ diction = {
 }
 
 #fileTest = open('sample.txt', 'r')
-fileTest = open(sys.argv[1], 'r')
+fileTest = open('sample.txt', 'r')
 lines = fileTest.readlines()
 fileTest.close()
 obj_list = []
@@ -130,4 +130,4 @@ with open('CatAudio.mp3', 'wb') as f:
     for v in obj_list:
         v.write_to_fp(f)
 f.close()
-os.system("ffmpeg -i CatAudio.mp3 -f concat -i timeing.txt -vcodec mpeg4 -y cubeCat.mp4")
+os.system("ffmpeg -i CatAudio.mp3 -f concat -i timeing.txt -vcodec mpeg4 -y FinalMovieFile.mp4")
