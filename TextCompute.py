@@ -121,7 +121,7 @@ audiofile = open('timeing.txt', 'w+')
 for i, a in enumerate(final_list):
     if i != 0:
         audiofile.write('file')
-        audiofile.write(' cat/cat')
+        audiofile.write(' book/page')
         audiofile.write(str(i))
         audiofile.write('.jpg\n')
         audiofile.write('duration ')
