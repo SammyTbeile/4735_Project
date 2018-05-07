@@ -96,7 +96,7 @@ def main():
 
         # Parse the text to determine speaker
         # text = "Page " + str(i) +"\n" + str(text)
-        sentences.append("Page  " + str(i) + "\n")
+        sentences.append("Page  " + str(i) + ":\n")
 
         # for sentence in text.split("\n"):
         sentence = text
@@ -115,7 +115,7 @@ def main():
         else:
             # remove the quoted (spoken) portion from the line
             res = re.findall(r'"([^"]*)"', sentence)
-            # print("res: " +str(res))
+            print("res: " +str(res))
             sentence_portion = sentence.replace("\"","")
             # keep track of speakers for pronoun references
             speakers = []
@@ -123,24 +123,28 @@ def main():
                 # for each quote attribute preamble to narrator and process quote
                 previous_char = ""
                 for quote in res:
-                    # print("quote is: "  + quote)
-                    # print("quote to process is: " + sentence_portion)
+                    print("quote is: "  + quote)
+                    print("quote to process is: " + sentence_portion)
 
                     # Split the sentence into the part before the quote and after
                     without_quote = sentence_portion.split(quote)
+                    print("w/o quote: " + str(without_quote))
                     # if there is stuff before the quote, attribute to narrator and then continue to process the quote
                     if (without_quote[0] != ""):
-                        # print("In nar block")
-                        # print("w/o quote:" + str(without_quote))
+                        print("In nar block")
+                        print("w/o quote:" + str(without_quote))
                         sentences.append("nar: " + str(without_quote[0].replace("\n"," ")) + "\n")
 
                     # Process the current quote
                     quote_to_process = quote.replace("\"", "")
                     # if there is more than one quote, we need to isolate what comes after
                     if (len(res) >1):
+
+                        print("processing")
+                        print("w/o quote processing: " + str(without_quote))
                         if(len(without_quote) <2):
-                            # print("In here")
-                            # print(without_quote)
+                            print("In here")
+                            print(without_quote)
                             if(without_quote  == ""):
                                 continue
                             if (previous_char not in characters):
@@ -150,7 +154,7 @@ def main():
                             continue
                         # if the quote occurs at the end check for a previous character
                         if(without_quote[1] == ""):
-                            # print("In this one")
+                            print("In this one")
                             # print(quote_to_process)
                             if (previous_char not in characters):
                                 characters[previous_char] = getWord(current_char)
@@ -159,7 +163,7 @@ def main():
                             continue
                         # otherwise get the text between the two quotes
                         if (res.index(quote) != len(res) -1):
-                            # print("in between")
+                            print("in between")
                             # print(without_quote)
                             # print("creating between from: " + str(quote) + " and:  " + str(res[res.index(quote) + 1]))
                             # print("between list" + str(without_quote[1].split(res[res.index(quote) + 1])))
@@ -190,7 +194,7 @@ def main():
                             # Look for the first capitalized word or pronoun
                             for word in between.split():
                                 if(word.capitalize() == word and word != "It" and word not in pronouns):
-                                    char_name = word.strip().strip(".")
+                                    char_name = word.strip().strip(".").strip("'s")
                                     break
                                 if(word.strip() in pronouns):
                                     # print("speakers: " + str(speakers))
@@ -212,8 +216,55 @@ def main():
                                     current_char +=1
                                 previous_char = char_name
                                 sentences.append(characters[char_name] + ": " + str(quote.replace("\n"," "))  + "\n")
+                            else:
+                                sentences.append("unknown" + ": " + str(quote.replace("\n"," "))  + "\n")
                                 # sentences.append("nar: " + str(without_quotes))
+                        # Another possiblity is that the part of the previous narrator is between them
+                        else:
+                            print("in else")
+                            if(("nar: " + str(without_quote[0].replace("\n","")) +"\n") not in sentences):
+                                sentences.append("nar: " + str(without_quote[0].replace("\n"," ")) + "\n")
+                            if(previous_char != ""):
+                                sentences.append(characters[previous_char] + ": " + str(quote.replace("\n"," ")) + "\n")
+                            else:
+                                sentences.append("unknown: " + str(quote.replace("\n"," ")) + "\n")
+                            sentences.append("nar: " + str(without_quote[1].replace("\n"," ")) + "\n")
+                            # sentence_portion = sentence_portion.split(quote)[1]
+                            continue
+                    #If there is only one quote (we also know quote is at beginning)
+                    elif (len(res) == 1):
+                        char_name = ""
+                        # Look for the first capitalized word or pronoun
+                        for word in without_quote[1].split():
+                            if(word.capitalize() == word and word != "It" and word not in pronouns):
+                                char_name = word.strip().strip(".").strip("'s")
+                                break
+                            if(word.strip() in pronouns):
+                                # print("speakers: " + str(speakers))
+                                if(previous_char in speakers and len(speakers) >1):
+                                    speakers2 = speakers.copy()
+                                    speakers2.remove(previous_char)
+                                    speakers2.reverse()
+                                    char_name = speakers2[0].strip(".")
+                                else:
+                                    char_name = previous_char
+                                break
+                        if(char_name != ""):
+                            # print("Found character: "  + char_name)
+                            # print(quote)
+                            if(char_name not in speakers):
+                                speakers.append(char_name)
+                            if (char_name not in characters):
+                                characters[char_name] = getWord(current_char)
+                                current_char +=1
+                            previous_char = char_name
+                            sentences.append(characters[char_name] + ": " + str(quote.replace("\n"," "))  + "\n")
+                            sentences.append("nar: " + str(without_quote[1].replace("\n","")) + "\n")
+                        else:
+                            sentences.append("unknown" + ": " + str(quote.replace("\n"," "))  + "\n")
+                            sentences.append("nar: " + str(without_quote[1].replace("\n","")) + "\n")
                     sentence_portion = sentence_portion.split(quote)[1]
+                    print(sentence_portion)
 
         #dispaly image
         os.remove(new_name)
@@ -221,6 +272,8 @@ def main():
         # cv2.imshow("Image", image)
         # cv2.waitKey(0)
 
+    # remove duplicates
+    sentences = sorted(set(sentences), key=sentences.index)
     with open("output.txt", "w") as outfile:
         for sentence in sentences:
             outfile.write(sentence)

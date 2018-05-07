@@ -1,19 +1,19 @@
-Page  1
+Page  1:
 nar: Boland was a little dinosaur. He lived with his mother and father in a great swamp forest.
-Page  2
+Page  2:
 nar: There were a lot of dinosaur children in Boland's neighborhood.
-Page  3
+Page  3:
 nar: They played together every day. and Boland was friendly with all of them — all of them, except one...
-Page  4
+Page  4:
 nar: as he was usually called. He was lust a kid himself, but he was much bigger and stronger than most of the others.  He was a real bully if you ever saw one. In fact, he was the world’s ﬁrst big bully!  His name was Tyrone — or Tyrone the Horrible,‘     s'i—tiv r
-Page  5
-Page  6
+Page  5:
+Page  6:
 nar: Tyrone especially liked to pick on Boland. He punched and teased him and always stole his snack or sandwich.
-Page  7
+Page  7:
 nar: Boland tried to stay out of Tyrone‘s way, but it seemed that no matter where he went, Tyrone was waiting for him.
-Page  8
+Page  8:
 nar: Night after night. Boland had a hard time getting to sleep. He kept thinking of ways to avoid Tyrone. It seemed hopeless.
-Page  9
+Page  9:
 nar: Boland’s playmates tried to help.  
 one: You have to get Tyrone to be your friend,
 nar:  Terry said to Boland one day.  
@@ -26,72 +26,86 @@ nar:  Terry said.  Boland thought for a while. What kind of present could he giv
 two: A present for Tyrone?
 nar:  he said. 
 two: Well, at least it’s worth a try.
-Page  10
+Page  10:
 nar: That afternoon, Boland went looking for Tyrone. .‘ ‘1‘ 
+unknown: Here,
 nar:  he said in his friendliest voice. 
 three: It's such a hot day, ‘ 7' I thought you might like a nice ice-cream cone.
 nar:   Tyrone looked at Boland for a moment. Then  he smiled a nasty smile. 
 three: Ice cream for me? How sweet!
-Page  11
-Page  12
+Page  11:
+Page  12:
 nar: Tyrone grabbed the cone. Then he turned it upside down and squashed it on Boland‘s head.  
-Page  13
+three: Ha ha ha!
+nar:  Tyrone laughed and walked away.Boland could hear Tyrone’s laughter for a long time,echoing through the forest.
+Page  13:
 nar: The next day, Boland told his friend Stella what had happened.  
 four: You are taking this too seriously,
 nar:  Stella said. 
 four: Don’t pay any attention to that big bully when he tries to tease you. Just stay cool. That’s the only thing he’ll understand.
-nar:   
 two: Staying cool when you are scared is not easy,
 nar:  Boland said. 
 two: But I will try.
-Page  14
-Page  15
+Page  14:
+Page  15:
 nar: And so the next time Boland met Tyrone, he ¢ stayed cool.  
 three: Hi, Lizardhead!
 nar:  roared Tyrone as Boland walked by. 
-Page  16
-Page  17
+three: How about MY sandwich?
+nar:   Boland did not pay any attention and didn‘t even try to run away. He kept on walking.
+Page  16:
+five: I guess I‘ll have to help myself again.
+nar:  ’l'yrone said.He stomped on Roland's tail until Boland let goof the sandwich.Boland tried not to show his tears. But it hurt a lot.
+Page  17:
 nar: When Boland‘s friends found out what Tyrone had done, they were furious.  
-five: It’s time to ﬁght back!
+six: It’s time to ﬁght back!
 nar:  Stego said. 
 two: Tyrone has given you enough trouble. You must stand up to him and show him you are a dinosaur, too. You can win any ﬁght against him. Tyrone just has a big mouth, that’s all.
 nar:   Boland was angry, too. 
-five: You’re right!
-nar:  he said. 
-five: Maybe I should ﬁght him and stop this nonsense once and for all.
-nar:   
-five: Well,
+six: You’re right!
+six: Maybe I should ﬁght him and stop this nonsense once and for all.
+six: Well,
 nar:  Stego said, 
-Page  18
+six: let‘s do it right now!
+nar:   The four friends marched 0!? to ﬁnd Tyrone.
+Page  18:
 nar: Boland stood up and faced Tyrone the Horrible. 
-nar:  he said. 
+unknown: Listen, you brute,
 three: I have had enough of your bullying. Come on and ﬁght!
 nar:   Tyrone took one look at Boland, then grinned and said, 
 three: Okay. if that's what you want.
-Page  19
-Page  20
+Page  19:
+Page  20:
 nar: It was a very short ﬁght. Little Boland had no chance against his big enemy. 
-five: I'm sorry.
-nar:  Stego said. 
-five: That was not a very good idea. You‘d better give up. Some bullies you iust can‘t beat. You have to learn to live with them.  whether you like. it or not.
-Page  21
+six: I'm sorry.
+six: That was not a very good idea. You‘d better give up. Some bullies you iust can‘t beat. You have to learn to live with them.  whether you like. it or not.
+Page  21:
 nar: But Boland did not like it. 
+unknown: There just has to be a way to beat a bully,
 nar:   he thought. He was still thinking as the moon came out  and the stars ﬁlled the sky. Suddenly he smiled a big smile.  
-Page  22
-Page  23
+unknown: That's it!
+nar:  he said to himself. Then he curled up and was soon fast asleep.
+Page  22:
+Page  23:
 nar: The next morning Boland took his sandwich and went off into the swamp forest as usual. It wasn‘t  long before he ran into Tyrone. 
 three: Another snack for me?
 nar:  roared Tyrone. 
-Page  24
+three: I hope it's  something good!
+nar:  And with that he swiped the sandwich out of Boland’s hand and swallowed it with one big gulp. Boland walked on as fast as he could. Suddenly he heard a terrible scream.
+Page  24:
 three: AAaaaaaarghhhhhh!
 nar:  It was Tyrone. Huge ﬂames were coming out of his mouth. 
 three: HELP, I’m burning,
 nar:  he cried. 
-Page  25
+three: I’m dying,
+nar:  I'm poisoned! HELP, HEEEEEEELP‘.
+Page  25:
 two: Nonsense!
 nar:  Boland said with a laugh. 
-Page  26
+two: It was only a sandwich. I didn‘t know you were so sensitive. I happen to like doubletﬂcj-md-hot-peppg[-s__andwiches. Too bad you don’t.
+nar:  He turned around and went off, leaving the moaning and groaning Tyrone behind.
+Page  26:
 nar: From then on, Tyrone stayed as far away from Boland as he could. Boland played happily with his friends in the  swamp forest all day, and he never had trouble falling asleep at night.
-Page  27
-Page  28
+Page  27:
+Page  28:
 nar: When much, much later some scientists found Tyrone the Horrible, he looked a little different — but he still had that nasty smile on his face.
