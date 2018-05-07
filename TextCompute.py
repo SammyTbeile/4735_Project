@@ -40,9 +40,13 @@ with open('hello_both.mp3', 'wb') as f:
     myobj.write_to_fp(f)
     myobjTwo.write_to_fp(f)
 """
+#-*- coding: utf-8 -*-
 import os
 from mutagen.mp3 import MP3
 from gtts import gTTS
+from gtts.tokenizer import pre_processors, Tokenizer
+import gtts.tokenizer.symbols
+
 diction = {
   'nar': 'en-au',
   'one': 'en-ca',
@@ -59,11 +63,15 @@ diction = {
   'twelve': 'en-za'
 }
 
-fileTest = open('sample.txt', 'r')
+#fileTest = open('sample.txt', 'r')
+fileTest = open('testOne.txt', 'r')
 lines = fileTest.readlines()
 fileTest.close()
 obj_list = []
 time_tracker = []
+#gTTS.tokenizer.symbols.SUB_PAIRS.append(('-', '  '))
+gTTS.tokenizer.symbols.SUB_PAIRS.append(('ght', 'fight'))
+gTTS.tokenizer.symbols.SUB_PAIRS.append(('ight', 'fight'))
 for i, line in enumerate(lines):
     sound = line.split(":")
     if "Page " in sound[0]:
@@ -78,7 +86,13 @@ for i, line in enumerate(lines):
         obj_list.append(myobj)
     else:
         lang = diction[sound[0]]
-        text = sound[1]
+        if len(sound) > 1:
+            text = sound[1]
+            pre_processors.word_sub(text)
+            text = ''.join([i if ord(i) < 128 else ' ' for i in text])
+        else:
+            text = 'space!!!!'
+
         # can have multiple langauges
         obj = gTTS(text=text, lang=lang, slow=False)
         obj.save('example.mp3')
