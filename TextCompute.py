@@ -44,6 +44,7 @@ with open('hello_both.mp3', 'wb') as f:
 import os
 from mutagen.mp3 import MP3
 from gtts import gTTS
+from gtts import tokenizer
 from gtts.tokenizer import pre_processors, Tokenizer
 import gtts.tokenizer.symbols
 
@@ -60,18 +61,18 @@ diction = {
   'nine': 'en-tz',
   'ten': 'en-uk',
   'eleven': 'en-us',
-  'twelve': 'en-za'
+  'unknown': 'en-za'
 }
 
 #fileTest = open('sample.txt', 'r')
-fileTest = open('testOne.txt', 'r')
+fileTest = open('testTwo.txt', 'r')
 lines = fileTest.readlines()
 fileTest.close()
 obj_list = []
 time_tracker = []
 #gTTS.tokenizer.symbols.SUB_PAIRS.append(('-', '  '))
-gTTS.tokenizer.symbols.SUB_PAIRS.append(('ght', 'fight'))
-gTTS.tokenizer.symbols.SUB_PAIRS.append(('ight', 'fight'))
+#gTTS.tokenizer.symbols.SUB_PAIRS.append(('ght', 'fight'))
+#gTTS.tokenizer.symbols.SUB_PAIRS.append(('ight', 'fight'))
 for i, line in enumerate(lines):
     sound = line.split(":")
     if "Page " in sound[0]:
@@ -86,12 +87,14 @@ for i, line in enumerate(lines):
         obj_list.append(myobj)
     else:
         lang = diction[sound[0]]
-        if len(sound) > 1:
+        if sound[1] != '\n':
             text = sound[1]
-            pre_processors.word_sub(text)
+            #pre_processors.word_sub(text)
+            text.replace('-', ' ')
             text = ''.join([i if ord(i) < 128 else ' ' for i in text])
         else:
-            text = 'space!!!!'
+            print('HELLO')
+            text = 'space'
 
         # can have multiple langauges
         obj = gTTS(text=text, lang=lang, slow=False)
@@ -99,7 +102,6 @@ for i, line in enumerate(lines):
         audio = MP3('example.mp3')
         time_tracker.append(audio.info.length)
         obj_list.append(obj)
-print(time_tracker)
 timeSum = 0
 final_list = []
 for time in time_tracker:
@@ -110,7 +112,6 @@ for time in time_tracker:
         timeSum = timeSum + time
 #for the last page
 final_list.append(timeSum)
-print(final_list)
 audiofile = open('timeing.txt', 'w+')
 
 for i, a in enumerate(final_list):
@@ -124,8 +125,8 @@ for i, a in enumerate(final_list):
         audiofile.write('\n')
 audiofile.close()
 
-with open('TyroneTheTerrible.mp3', 'wb') as f:
+with open('TyroneTheTerribleTwo.mp3', 'wb') as f:
     for v in obj_list:
         v.write_to_fp(f)
 f.close()
-os.system("ffmpeg -i TyroneTheTerrible.mp3 -f concat -i timeing.txt -vcodec mpeg4 -y movieTwo.mp4")
+os.system("ffmpeg -i TyroneTheTerribleTwo.mp3 -f concat -i timeing.txt -vcodec mpeg4 -y movieThree.mp4")
