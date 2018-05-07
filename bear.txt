@@ -1,0 +1,10 @@
+nar: We see a brown bear
+one: A red bird
+two: A Green Frog
+three: A Black Sheep
+four: A Yellow Duck
+five: A Purple Cat
+six: A Blue Horse
+seven: A goldfiish
+eight: A white dog
+nine: and a teacher looking at us. Thats what we see.

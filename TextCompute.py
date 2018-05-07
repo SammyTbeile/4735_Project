@@ -65,7 +65,7 @@ diction = {
 }
 
 #fileTest = open('sample.txt', 'r')
-fileTest = open('testTwo.txt', 'r')
+fileTest = open('cube_cat.txt', 'r')
 lines = fileTest.readlines()
 fileTest.close()
 obj_list = []
@@ -119,14 +119,14 @@ for i, a in enumerate(final_list):
         audiofile.write('file')
         audiofile.write(' book/page')
         audiofile.write(str(i))
-        audiofile.write('.png\n')
+        audiofile.write('.jpg\n')
         audiofile.write('duration ')
         audiofile.write(str(a))
         audiofile.write('\n')
 audiofile.close()
 
-with open('TyroneTheTerribleTwo.mp3', 'wb') as f:
+with open('CatAudio.mp3', 'wb') as f:
     for v in obj_list:
         v.write_to_fp(f)
 f.close()
-os.system("ffmpeg -i TyroneTheTerribleTwo.mp3 -f concat -i timeing.txt -vcodec mpeg4 -y movieThree.mp4")
+os.system("ffmpeg -i CatAudio.mp3 -f concat -i timeing.txt -vcodec mpeg4 -y cubeCat.mp4")
