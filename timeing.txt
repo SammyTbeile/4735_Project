@@ -1,0 +1,6 @@
+file book/page1.png
+duration 18.696
+file book/page2.png
+duration 34.368
+file book/page3.png
+duration 22.44

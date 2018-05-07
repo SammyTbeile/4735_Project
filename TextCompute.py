@@ -40,40 +40,34 @@ with open('hello_both.mp3', 'wb') as f:
     myobj.write_to_fp(f)
     myobjTwo.write_to_fp(f)
 """
-import time
 import os
 from mutagen.mp3 import MP3
 from gtts import gTTS
-dict = {
-  'nar' : 'en-au',
-  'one' : 'en-ca',
-  'two' : 'en-in',
-  'three' : 'en-nz',
-  'four' : 'en-ie',
-  'five' : 'en-gb',
-  'six' : 'en-ng',
-  'seven' : 'en-gh',
-  'eight' : 'en-ph',
-  'nine' : 'en-tz',
-  'ten' : 'en-uk',
-  'eleven' : 'en-us',
-  'twelve' : 'en-za'
+diction = {
+  'nar': 'en-au',
+  'one': 'en-ca',
+  'two': 'en-in',
+  'three': 'en-nz',
+  'four': 'en-ie',
+  'five': 'en-gb',
+  'six': 'en-ng',
+  'seven': 'en-gh',
+  'eight': 'en-ph',
+  'nine': 'en-tz',
+  'ten': 'en-uk',
+  'eleven': 'en-us',
+  'twelve': 'en-za'
 }
 
-file = open('sample.txt', 'r')
-lines = file.readlines()
-file.close()
-list = []
+fileTest = open('sample.txt', 'r')
+lines = fileTest.readlines()
+fileTest.close()
+obj_list = []
 time_tracker = []
 for i, line in enumerate(lines):
     sound = line.split(":")
     if "Page " in sound[0]:
-        #get the inpoint time...
-        #start = time.time()
-        #time_tracker.append(start)
-
-
-        language = dict['nar']
+        language = diction['nar']
         mytext = sound[0] + "                                         "
         # can have multiple langauges
         myobj = gTTS(text=mytext, lang=language, slow=True)
@@ -81,26 +75,22 @@ for i, line in enumerate(lines):
         myobj.save('example.mp3')
         audio = MP3('example.mp3')
         time_tracker.append(audio.info.length)
-        #print audio.info.length
-        list.append(myobj)
+        obj_list.append(myobj)
     else:
-        lang = dict[sound[0]]
+        lang = diction[sound[0]]
         text = sound[1]
         # can have multiple langauges
         obj = gTTS(text=text, lang=lang, slow=False)
         obj.save('example.mp3')
         audio = MP3('example.mp3')
         time_tracker.append(audio.info.length)
-        list.append(obj)
+        obj_list.append(obj)
 print(time_tracker)
-count = 0
 timeSum = 0
 final_list = []
 for time in time_tracker:
     if type(time) == str:
         final_list.append(timeSum)
-        #new page
-        count =  count + 1
         timeSum = 0
     else:
         timeSum = timeSum + time
@@ -121,7 +111,7 @@ for i, a in enumerate(final_list):
 audiofile.close()
 
 with open('TyroneTheTerrible.mp3', 'wb') as f:
-    for v in list:
+    for v in obj_list:
         v.write_to_fp(f)
-
-os.system("ffmpeg -f concat -i timeing.txt -vcodec mpeg4 -y movieTwo.mp4")
+f.close()
+os.system("ffmpeg -i TyroneTheTerrible.mp3 -f concat -i timeing.txt -vcodec mpeg4 -y movieTwo.mp4")
