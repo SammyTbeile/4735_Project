@@ -21,6 +21,7 @@ def main():
     ap.add_argument("-i", "--image", action="store", default="")
     ap.add_argument("-t", "--tools", action="store", default="")
     ap.add_argument("-l", "--lang", action="store", default="")
+    ap.add_argument("-o", "--output", action="store", default="book/")
     args = ap.parse_args()
 
     # Get desired OCR tool:
@@ -76,9 +77,26 @@ def main():
         # Read in file for preprocessing
         image = Image.open(io.BytesIO(image)).convert('RGB')
         image = cv2.cvtColor(np.array(image), cv2.COLOR_RGB2BGR)
+        dir_name = args.output
+        page_name = "page" + str(i) + ".jpg"
+
+        cv2.imwrite(dir_name + page_name,image )
+        # cv2.namedWindow("Image", cv2.WINDOW_NORMAL)
+        # cv2.imshow("Image", image)
+        # cv2.waitKey(0)
         gray = cv2.medianBlur(image, 3)
+        # cv2.namedWindow("Image", cv2.WINDOW_NORMAL)
+        # cv2.imshow("Image", gray)
+        # cv2.waitKey(0)
         gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+        # cv2.namedWindow("Image", cv2.WINDOW_NORMAL)
+        # cv2.imshow("Image", gray)
+        # cv2.waitKey(0)
         gray = cv2.threshold(gray, 0 ,255,cv2.THRESH_BINARY | cv2.THRESH_OTSU)[1]
+        # cv2.namedWindow("Image", cv2.WINDOW_NORMAL)
+        # cv2.imshow("Image", gray)
+        # cv2.waitKey(0)
+        # gray = image.copy()
         new_name = "page" + str(i) + ".jpg"
         cv2.imwrite(new_name,gray)
 
@@ -267,7 +285,7 @@ def main():
                     print(sentence_portion)
 
         #dispaly image
-        os.remove(new_name)
+        # os.remove(new_name)
         # cv2.namedWindow("Image", cv2.WINDOW_NORMAL)
         # cv2.imshow("Image", image)
         # cv2.waitKey(0)
