@@ -44,6 +44,7 @@ with open('hello_both.mp3', 'wb') as f:
 import os
 from mutagen.mp3 import MP3
 from gtts import gTTS
+import sys
 from gtts import tokenizer
 from gtts.tokenizer import pre_processors, Tokenizer
 import gtts.tokenizer.symbols
@@ -65,7 +66,7 @@ diction = {
 }
 
 #fileTest = open('sample.txt', 'r')
-fileTest = open('cube_cat.txt', 'r')
+fileTest = open(sys.argv[1], 'r')
 lines = fileTest.readlines()
 fileTest.close()
 obj_list = []
