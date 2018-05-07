@@ -66,7 +66,7 @@ diction = {
 }
 
 #fileTest = open('sample.txt', 'r')
-fileTest = open('sample.txt', 'r')
+fileTest = open('cube_cat.txt', 'r')
 lines = fileTest.readlines()
 fileTest.close()
 obj_list = []
@@ -118,7 +118,7 @@ audiofile = open('timeing.txt', 'w+')
 for i, a in enumerate(final_list):
     if i != 0:
         audiofile.write('file')
-        audiofile.write(' book/page')
+        audiofile.write(' cat/cat')
         audiofile.write(str(i))
         audiofile.write('.jpg\n')
         audiofile.write('duration ')
