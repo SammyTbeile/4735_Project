@@ -292,7 +292,7 @@ def main():
 
     # remove duplicates
     sentences = sorted(set(sentences), key=sentences.index)
-    with open("output.txt", "w") as outfile:
+    with open("sample.txt", "w") as outfile:
         for sentence in sentences:
             outfile.write(sentence)
 
