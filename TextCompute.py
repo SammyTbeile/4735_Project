@@ -56,7 +56,7 @@ diction = {
   'nine': 'en-tz',
   'ten': 'en-uk',
   'eleven': 'en-us',
-  'twelve': 'en-za'
+  'unknown': 'en-za'
 }
 
 fileTest = open('sample.txt', 'r')
