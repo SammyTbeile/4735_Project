@@ -66,7 +66,7 @@ diction = {
 }
 
 #fileTest = open('sample.txt', 'r')
-fileTest = open('cube_cat.txt', 'r')
+fileTest = open('sample.txt', 'r')
 lines = fileTest.readlines()
 fileTest.close()
 obj_list = []
@@ -98,6 +98,9 @@ for i, line in enumerate(lines):
             text = 'space'
 
         # can have multiple langauges
+        print "text: " + text
+        if(text.strip() == ""):
+            continue
         obj = gTTS(text=text, lang=lang, slow=False)
         obj.save('example.mp3')
         audio = MP3('example.mp3')
